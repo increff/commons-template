@@ -1,0 +1,70 @@
+<html>
+<head>
+    <style type="text/css">
+        .tg  {margin:0 auto;border-spacing:0;width: 90%}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg .tg-yw4l{vertical-align:top}
+    </style>
+</head>
+<body>
+<div >
+    <div style="text-align: center">
+        Manifest
+    </div>
+    <table class="tg">
+        <tr>
+            <td colspan="9" style="border:none">
+                Courier : $!data.courier<br/><br/>
+                ManifestId : $!data.manifestId<br/><br/>
+                Seller Name : $!data.sellerName<br/><br/>
+                Seller Address : $!data.sellerAddress<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                AWB No
+            </td>
+            <td>
+                Order No
+            </td>
+            <td>
+                No of Pieces
+            </td>
+            <td>
+                PaymentType
+            </td>
+            <td>
+                Collectible Value
+            </td>
+            <td>
+                Attention
+            </td>
+            <td>
+                Address
+            </td>
+            <td>
+                Phone No
+            </td>
+            <td>
+                AWB Barcode
+            </td>
+        </tr>
+        #foreach ($awbDetail in $data.awbDetailList)
+            <tr>
+                <td>$!awbDetail.awbNo</td>
+                <td>$!awbDetail.orderNo</td>
+                <td>$!awbDetail.noOfPieces</td>
+                <td>$!awbDetail.paymentType</td>
+                <td>$!awbDetail.amount</td>
+                <td>$!awbDetail.customerName</td>
+                <td>$!awbDetail.address</td>
+                <td>$!awbDetail.phoneNo</td>
+                <td><img src="data:image/png;base64,$!awbDetail.barcode"/><br/></td>
+            </tr>
+        #end
+    </table>
+
+</div>
+</body>
+</html>

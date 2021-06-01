@@ -1,0 +1,66 @@
+<html>
+<head>
+    <style type="text/css">
+        .tg  {margin:0 auto;border-spacing:0;width: 90%}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg .tg-yw4l{vertical-align:top}
+    </style>
+</head>
+<body>
+<div >
+    <div style="text-align: center">
+        Shipping Label
+    </div>
+    <table class="tg">
+        <tr>
+            <td colspan="2" style="border:none">
+                Cash on Delivery : $!data.cashOnDeliveryAmount
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                Customer Name and Address : <br/>
+
+                $!data.customerName<br/>
+
+                $!data.customerAddress.line1<br/>
+                $!data.customerAddress.line2<br/>
+                $!data.customerAddress.city<br/>
+                $!data.customerAddress.state<br/>
+                $!data.customerAddress.pin<br/><br/>
+
+                $!data.phoneNo<br/>
+            </td>
+            <td width="50%">
+                Shipper : $!data.courier
+                <div align="center">
+                    <br/>
+                    <img src="data:image/png;base64,$!data.awbNoBarcode"/><br/>
+                    $!data.awbNo<br/>
+                </div>
+                Order No : <br/>
+                <div align="center">
+                    <img src="data:image/png;base64,$!data.OrderNoBarcode"/><br/>
+                    $!data.orderNo<br/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    Return To Address : <br/>
+                    $!data.returnAddress.line1<br/>
+                    $!data.returnAddress.line2<br/>
+                    $!data.returnAddress.city<br/>
+                    $!data.returnAddress.state<br/>
+                    $!data.returnAddress.pin<br/>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>

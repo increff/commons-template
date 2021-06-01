@@ -1,0 +1,144 @@
+<html>
+<head>
+    <style type="text/css">
+        .box {width: 100%}
+        .tg  {border-collapse:collapse;border-spacing:0;width: 100%}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:3px 2px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:3px 2px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg .tg-yw4l{vertical-align:top}
+    </style>
+</head>
+<body>
+<div >
+    <div style="text-align: center">
+        Retail Invoice<br/>
+
+    </div>
+    <table class="tg">
+        <tr>
+            <td class="tg-yw4l">
+                $!data.destinationAddress.name<br/>
+                $!data.destinationAddress.line1<br/>
+                $!data.destinationAddress.line2<br/>
+                $!data.destinationAddress.city<br/>
+                $!data.destinationAddress.state<br/>
+                $!data.destinationAddress.pin<br/>
+
+                #if ($data.destinationTinNo)
+                    Tin No. : $!data.destinationTinNo<br/>
+                #end
+
+                <br/>
+                <br/>
+                #if ($data.orderDate)
+                    Order Date : $!data.orderDate<br/>
+                #end
+                #if ($data.orderNo)
+                    Order No : $!data.orderNo<br/>
+                #end
+            </td>
+            <td class="tg-yw4l">
+                Invoice No : $!data.invoiceNo <br/>
+                Invoice date : $!data.invoiceDate<br/>
+                $!data.sourceAddress.name<br/>
+                $!data.sourceAddress.line1<br/>
+                $!data.sourceAddress.line2<br/>
+                $!data.sourceAddress.city<br/>
+                $!data.sourceAddress.state<br/>
+                $!data.sourceAddress.pin<br/>
+                #if ($data.sourceTinNo)
+                    Tin No. : $!data.sourceTinNo<br/>
+                #end
+            </td>
+        </tr>
+    </table>
+    <table class="tg">
+        <tr>
+            <td>
+                Brand
+            </td>
+            <td>
+                Channel SKU
+            </td>
+            <td>
+                Vendor SKU
+            </td>
+            <td>
+                Description
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                MRP
+            </td>
+            <td>
+                Unit Price
+            </td>
+            <td>
+                Discount
+            </td>
+            <td>
+                Taxable Amount
+            </td>
+            <td>
+                Tax %
+            </td>
+            <td>
+                Tax amount
+            </td>
+            <td>
+                Total Amount
+            </td>
+        </tr>
+        #foreach ($item in $data.lineItems)
+            <tr>
+                <td>$!item.brand</td>
+                <td>$!item.channelSku</td>
+                <td>$!item.vendorSku</td>
+                <td>$!item.description</td>
+                <td>$!item.quantity</td>
+                <td>$!item.mrp</td>
+                <td>$!item.unitPrice</td>
+                <td>$!item.discount</td>
+                <td>$!item.taxableAmount</td>
+                <td>$!item.taxRate</td>
+                <td>$!item.taxAmount</td>
+                <td>$!item.totalAmount</td>
+            </tr>
+        #end
+    </table>
+
+    <div style="float:right">
+        <table class="tg">
+            <tr>
+                <td>
+                    SUB TOTAL : $!data.subTotal
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TAX TOTAL : $!data.taxTotal
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    SHIPPING CHARGES : $!data.shippingCharges
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    COD CHARGES : $data.CODCharges
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TOTAL : $!data.total
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+    </div>
+</div>
+</body>
+</html>

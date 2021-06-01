@@ -1,0 +1,39 @@
+<html>
+<head>
+    <style type="text/css">
+        .tg  {margin:0 auto;border-spacing:0;width: 90%}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg .tg-yw4l{vertical-align:top}
+    </style>
+</head>
+<body>
+<div >
+    <div style="text-align: center">
+        PackingList
+    </div>
+    <table class="tg">
+        <tr>
+            <td colspan="2" style="border:none">
+                ClientId : $!data.clientId<br/><br/>
+                BoxId : $!data.boxId<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ClientSku
+            </td>
+            <td>
+                Quantity
+            </td>
+        </tr>
+        #foreach ($skuQuantity in $data.skuQuantityList)
+            <tr>
+                <td>$!skuQuantity.clientSkuId</td>
+                <td>$!skuQuantity.quantity</td>
+            </tr>
+        #end
+    </table>
+</div>
+</body>
+</html>

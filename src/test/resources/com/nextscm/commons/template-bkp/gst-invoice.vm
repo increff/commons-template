@@ -1,0 +1,143 @@
+<html>
+<head>
+    <style type="text/css">
+        .box {width: 100%}
+        .tg  {border-collapse:collapse;border-spacing:0;width: 100%}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:3px 2px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:3px 2px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+        .tg .tg-yw4l{vertical-align:top}
+    </style>
+</head>
+<body>
+<div >
+    <div style="text-align: center">
+        Retail Invoice<br/>
+
+    </div>
+    <table class="tg">
+        <tr>
+
+            <td class="tg-yw4l">
+                PO No : $!data.purchaseOrderNo<br/>
+                Invoice No : $!data.invoiceNo <br/>
+                Invoice date : $!data.invoiceDate<br/><br/>
+                $!data.supplierAddress.name<br/>
+                $!data.supplierAddress.line1<br/>
+                $!data.supplierAddress.line2<br/>
+                $!data.supplierAddress.city<br/>
+                $!data.supplierAddress.state<br/>
+                $!data.supplierAddress.pin<br/>
+                GST No. : $!data.supplierGstNo<br/>
+
+            </td>
+
+            <td class="tg-yw4l">
+                $!data.shippingAddress.name<br/><br/>
+                    Shipping Address : <br/>
+                $!data.shippingAddress.line1<br/>
+                $!data.shippingAddress.line2<br/>
+                $!data.shippingAddress.city<br/>
+                $!data.shippingAddress.state<br/>
+                $!data.shippingAddress.pin<br/><br/>
+
+                Billing Address : <br/>
+                $!data.billingAddress.line1<br/>
+                $!data.billingAddress.line2<br/>
+                $!data.billingAddress.city<br/>
+                $!data.billingAddress.state<br/>
+                $!data.billingAddress.pin<br/>
+
+                GST No. : $!data.buyerGstNo<br/>
+
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <table class="tg">
+        <tr>
+            <td>
+                Description
+            </td>
+            <td>
+                HSN Code
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                Unit Price
+            </td>
+            <td>
+                Amount
+            </td>
+            <td>
+                IGST(in %)
+            </td>
+            <td>
+                CGST(in %)
+            </td>
+            <td>
+                SGST(in %)
+            </td>
+            <td>
+                Total Amount
+            </td>
+        </tr>
+        #foreach ($item in $data.lineItems)
+            <tr>
+                <td>$!item.description</td>
+                <td>$!item.hsnCode</td>
+                <td>$!item.quantity</td>
+                <td>$!item.unitPrice</td>
+                <td>$!item.taxableAmount</td>
+                <td>$!item.igst</td>
+                <td>$!item.sgst</td>
+                <td>$!item.cgst</td>
+                <td>$!item.totalAmount</td>
+            </tr>
+        #end
+    </table>
+	<br/>
+    <br/>
+    <div style="float:right">
+        <table class="tg">
+            <tr>
+                <td>
+                    SUB TOTAL : $!data.subTotal
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    IGST TOTAL : $!data.totalIgst
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    CGST TOTAL : $!data.totalCgst
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    SGST TOTAL : $data.totalSgst
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TOTAL : $!data.totalAmount
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+    </div>
+
+    <div style="float:left">
+		<table class="tg">
+			<tr>
+				<td>Amount in Words : $!data.totalAmountInWords</td>
+			</tr>
+		</table>
+    </div>
+</div>
+</body>
+</html>

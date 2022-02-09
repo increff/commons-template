@@ -27,6 +27,7 @@ public class Resources {
 	public static final String PACKING_LIST_RESOURCE = BASE_PACKAGE + "/packing-list.fo.vm";
 	public static final String SHIPPING_LABEL_RESOURCE = BASE_PACKAGE + "/shipping-label.fo.vm";
 	public static final String UPB_PACKLIST_RESOURCE = BASE_PACKAGE + "/upb-packing-list.fo.vm";
+	public static final String PACKBOX_DOCUMENT_RESOURCE = BASE_PACKAGE + "/packbox-document.fo.vm";
 
 
 	public static final String FOP_DATA_RESOURCE = BASE_PACKAGE + "/fop-data.xml";

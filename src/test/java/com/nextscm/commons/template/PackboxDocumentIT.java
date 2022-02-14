@@ -46,7 +46,7 @@ public class PackboxDocumentIT extends AbstractTest {
         form.setVendorName("TEST VENDOR NAME");
         form.setLength("123");
         form.setBreadth("456");
-        form.setHeight("789");
+        form.setHeight(null);
         form.setWeight("147");
         form.setItemCount("50");
         form.setOrderId("84103");

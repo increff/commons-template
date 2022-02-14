@@ -75,12 +75,10 @@
 									<fo:block>
                                         #writeBarcodeWithoutText($data.boxId)
                                     </fo:block>
-									<fo:block>Order #:#writeString($data.orderId)</fo:block>
-									<fo:block>Shipment #:#writeString($data.shipmentId)</fo:block>
 								</fo:table-cell>
-								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt"
-                                               display-align="after">
-									<fo:block>#writeString($data.vendorName)</fo:block>
+								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt" display-align="after">
+                                    <fo:block>Order #:#writeString($data.orderId)</fo:block>
+                                    <fo:block>Shipment #:#writeString($data.shipmentId)</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
 						</fo:table-body>
@@ -130,8 +128,8 @@
 					</fo:block>
 
 					<fo:table table-layout="fixed" width="100%">
-						<fo:table-column column-number="1" column-width="30%" /> <!--Dimension tyoe-->
-						<fo:table-column column-number="2" column-width="80%" /><!--Dimension value-->
+						<fo:table-column column-width="proportional-column-width(50)" />
+						<fo:table-column column-width="proportional-column-width(50)" />
 						<fo:table-header font-weight="bold">
 							<fo:table-row border="solid 0.5px black">
 								<fo:table-cell>
@@ -249,7 +247,7 @@
 #if($str.toString().contains('"'))
         #set( $str = $str.replace('"', "&quot;") )
 #end
-#if($str) 
+#if($str)
 <fo:instream-foreign-object>
 	<bc:barcode xmlns:bc="http://barcode4j.krysalis.org/ns"
 		message="$str">
@@ -260,12 +258,12 @@
 			</human-readable>
 		</bc:code128>
 	</bc:barcode>
-</fo:instream-foreign-object>				
+</fo:instream-foreign-object>
 #end
 #end
 
 #macro( writeDateTime $dateTime $format)
 #if($dateTime)
 	$date.format('dd MMM yyyy, hh:mm a', $dateTime)
-#end				
+#end
 #end

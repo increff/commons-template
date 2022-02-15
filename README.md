@@ -8,7 +8,7 @@ The commons-template library was created for providing templates for various app
 Include the following dependency in your pom.xml
 ```xml
 <dependency>
-    <groupId>com.nextscm.commons</groupId>
+    <groupId>com.increff.commons</groupId>
     <artifactId>commons-template</artifactId>
     <version>{commons-template.version}</version>
 </dependency>

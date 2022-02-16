@@ -31,7 +31,7 @@ public class BoxLabelIT extends AbstractTest {
 
     @Test
     public void testBoxLabel() throws IOException, TransformerException, URISyntaxException, SAXException {
-        String fopTemplate = VelocityUtil.processVm(getBoxLabelForm(), Resources.PACKBOX_DOCUMENT_RESOURCE);
+        String fopTemplate = VelocityUtil.processVm(getBoxLabelForm(), Resources.BOX_LABEL_RESOURCE);
         FileOutputStream fos = new FileOutputStream("target/test-box-label.pdf");
         FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);
     }

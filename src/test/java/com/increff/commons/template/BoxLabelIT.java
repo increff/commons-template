@@ -15,7 +15,7 @@
 package com.increff.commons.template;
 
 import com.increff.commons.template.form.Address;
-import com.increff.commons.template.form.PackboxDocumentForm;
+import com.increff.commons.template.form.BoxLabelForm;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
@@ -27,17 +27,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class PackboxDocumentIT extends AbstractTest {
+public class BoxLabelIT extends AbstractTest {
 
     @Test
-    public void testPackingList() throws IOException, TransformerException, URISyntaxException, SAXException {
-        String fopTemplate = VelocityUtil.processVm(getPackboxDocumentForm(), Resources.PACKBOX_DOCUMENT_RESOURCE);
-        FileOutputStream fos = new FileOutputStream("target/test-packbox-document.pdf");
+    public void testBoxLabel() throws IOException, TransformerException, URISyntaxException, SAXException {
+        String fopTemplate = VelocityUtil.processVm(getBoxLabelForm(), Resources.PACKBOX_DOCUMENT_RESOURCE);
+        FileOutputStream fos = new FileOutputStream("target/test-box-label.pdf");
         FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);
     }
 
-    public static PackboxDocumentForm getPackboxDocumentForm() {
-        PackboxDocumentForm form = new PackboxDocumentForm();
+    public static BoxLabelForm getBoxLabelForm() {
+        BoxLabelForm form = new BoxLabelForm();
         form.setBoxId("1234567890");
         form.setVendorName("TEST VENDOR NAME");
         form.setLength("123");
@@ -45,7 +45,7 @@ public class PackboxDocumentIT extends AbstractTest {
         form.setHeight(null);
         form.setWeight("147");
         form.setItemCount("50");
-        form.setOrderId("84103");
+        form.setChannelOrderId("CHOID19373");
         form.setFromAddress(getAddress("Customer A"));
         form.setToAddress(getAddress("Customer B"));
         form.setShipmentId("183944");

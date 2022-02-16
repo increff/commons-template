@@ -19,7 +19,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PackboxDocumentForm {
+public class BoxLabelForm {
 
     private String boxId;
 
@@ -35,7 +35,7 @@ public class PackboxDocumentForm {
     private String itemCount;
 
     /* Order Information */
-    private String orderId;
+    private String channelOrderId;
     private Address fromAddress;
     private Address toAddress;
     private String shipmentId;

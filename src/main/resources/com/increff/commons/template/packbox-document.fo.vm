@@ -144,6 +144,15 @@
 						<fo:table-body>
 							<fo:table-row border="solid 0.5px black">
 								<fo:table-cell>
+									<fo:block>Item Count</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block>#writeString($data.itemCount)</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+
+							<fo:table-row border="solid 0.5px black">
+								<fo:table-cell>
 									<fo:block>Length</fo:block>
 								</fo:table-cell>
 								<fo:table-cell>

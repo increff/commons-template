@@ -16,8 +16,6 @@ package com.increff.commons.template;
 
 import com.increff.commons.template.form.Address;
 import com.increff.commons.template.form.PackboxDocumentForm;
-import com.increff.commons.template.form.PackingListForm;
-import com.increff.commons.template.form.PackingListLineItem;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
@@ -28,8 +26,6 @@ import javax.xml.transform.TransformerException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PackboxDocumentIT extends AbstractTest {
 

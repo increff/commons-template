@@ -167,7 +167,7 @@
 										<fo:table-header font-weight="bold">
 											<fo:table-row border="solid 0.5px black">
 												<fo:table-cell>
-													<fo:block>Dimensions</fo:block>
+													<fo:block>Box Details</fo:block>
 												</fo:table-cell>
 												<fo:table-cell>
 													<fo:block>Value (in respective units)</fo:block>
@@ -177,7 +177,7 @@
 										<fo:table-body>
 											<fo:table-row border="solid 0.5px black">
 												<fo:table-cell>
-													<fo:block>Item Count</fo:block>
+													<fo:block>Quantity</fo:block>
 												</fo:table-cell>
 												<fo:table-cell>
 													<fo:block>#writeString($data.itemCount)</fo:block>

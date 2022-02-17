@@ -63,11 +63,12 @@
 							<fo:table-row>
 								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt"
                                                display-align="after">
-									<fo:block>Box #: #writeBarcodeWithText($data.boxId)</fo:block>
+									<fo:block>Box #:#writeBarcodeWithoutText($data.boxId)</fo:block>
+									<fo:block><fo:inline font-size="20pt" font-weight="bold">#writeString($data.boxId)</fo:inline></fo:block>
 								</fo:table-cell>
 								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt" display-align="before">
-									<fo:block>Order #:#writeString($data.channelOrderId)</fo:block>
-									<fo:block>Shipment #:#writeString($data.shipmentId)</fo:block>
+									<fo:block>Order #:<fo:inline font-size="20pt" font-weight="bold">#writeString($data.channelOrderId)</fo:inline></fo:block>
+									<fo:block>Shipment #:<fo:inline font-size="20pt" font-weight="bold">#writeString($data.shipmentId)</fo:inline></fo:block>
 								</fo:table-cell>
 							</fo:table-row>
 						</fo:table-body>
@@ -246,30 +247,31 @@
   #end
 #end
 
-#macro( writeBarcodeWithText $str)
+#macro( writeBarcodeWithoutText $str)
 #if($str.toString().contains("&"))
-	#set( $str = $str.replace("&", "&amp;") )
+        #set( $str = $str.replace("&", "&amp;") )
 #end
 #if($str.toString().contains("<"))
-	#set( $str = $str.replace("<", "&lt;") )
+        #set( $str = $str.replace("<", "&lt;") )
 #end
 #if($str.toString().contains(">"))
-	#set( $str = $str.replace(">", "&gt;") )
+        #set( $str = $str.replace(">", "&gt;") )
 #end
 #if($str.toString().contains("'"))
-	#set( $str = $str.replace("'", "&apos;") )
+        #set( $str = $str.replace("'", "&apos;") )
 #end
 #if($str.toString().contains('"'))
-	#set( $str = $str.replace('"', "&quot;") )
+        #set( $str = $str.replace('"', "&quot;") )
 #end
 #if($str)
-
 <fo:instream-foreign-object>
-	<bc:barcode
-		xmlns:bc="http://barcode4j.krysalis.org/ns"
+	<bc:barcode xmlns:bc="http://barcode4j.krysalis.org/ns"
 		message="$str">
 		<bc:code128>
 			<bc:height>10mm</bc:height>
+			<human-readable>
+				<placement>none</placement>
+			</human-readable>
 		</bc:code128>
 	</bc:barcode>
 </fo:instream-foreign-object>

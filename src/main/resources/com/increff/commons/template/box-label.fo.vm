@@ -8,8 +8,8 @@
 		<fo:root language="EN" font-size="8pt" font-family="arial">
 			<fo:layout-master-set>
 				<fo:simple-page-master master-name="page-master"
-					page-height="297mm" page-width="210mm" margin-top="5mm"
-					margin-bottom="5mm" margin-left="5mm" margin-right="5mm">
+					page-height="101.6mm" page-width="152.4mm" margin-top="5mm"
+					margin-bottom="5mm" margin-left="5mm" margin-right="5mm" >
 					<fo:region-body region-name="body" />
 					<fo:region-before region-name="header" extent="5mm"
 						margin-bottom="5mm" margin-top="5mm" />
@@ -28,27 +28,26 @@
 							rule-thickness="0.5px" />
 					</fo:block>
 					<fo:block>
-						Page
-
-						<fo:page-number />
-						(This is a system generated document)
-
+					    Powered by Increff
 					</fo:block>
 				</fo:static-content>
-				<fo:flow flow-name="body" border-collapse="collapse"
+				<fo:flow flow-name="body"
 					reference-orientation="0">
 					<fo:table table-layout="fixed" width="100%">
 						<fo:table-body>
 							<fo:table-row>
 								<fo:table-cell padding-after="0pt">
-									<fo:block></fo:block>
+									<fo:block>
+									    <fo:block>Box #:#writeBarcodeWithoutText($data.boxId)</fo:block>
+									    <fo:block><fo:inline font-size="20pt" font-weight="bold">#writeString($data.boxId)</fo:inline></fo:block>
+									</fo:block>
 								</fo:table-cell>
 								<fo:table-cell text-align="center" padding-before="2pt" padding-after="2pt"
-                                               display-align="after">
+                                               display-align="before">
 									<fo:block>BOX LABEL</fo:block>
 								</fo:table-cell>
 								<fo:table-cell text-align="center" padding-before="2pt" padding-after="2pt"
-                                               display-align="after">
+                                               display-align="before">
 									<fo:block>#writeString($data.vendorName)</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
@@ -59,15 +58,15 @@
 							rule-thickness="0.5px" />
 					</fo:block>
 					<fo:table table-layout="fixed" width="100%">
+						<fo:table-column column-width="proportional-column-width(60)" />
+                    	<fo:table-column column-width="proportional-column-width(40)" />
 						<fo:table-body>
 							<fo:table-row>
 								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt"
                                                display-align="after">
-									<fo:block>Box #:#writeBarcodeWithoutText($data.boxId)</fo:block>
-									<fo:block><fo:inline font-size="20pt" font-weight="bold">#writeString($data.boxId)</fo:inline></fo:block>
+								    <fo:block>Order #:<fo:inline font-size="20pt" font-weight="bold">#writeString($data.channelOrderId)</fo:inline></fo:block>
 								</fo:table-cell>
 								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt" display-align="before">
-									<fo:block>Order #:<fo:inline font-size="20pt" font-weight="bold">#writeString($data.channelOrderId)</fo:inline></fo:block>
 									<fo:block>Shipment #:<fo:inline font-size="20pt" font-weight="bold">#writeString($data.shipmentId)</fo:inline></fo:block>
 								</fo:table-cell>
 							</fo:table-row>
@@ -111,92 +110,54 @@
 						<fo:leader leader-length="100%" leader-pattern="rule"
 							rule-thickness="0px" />
 						Packbox Details
+						<fo:inline font-size="8pt" font-weight="bold">(values are in respective units)</fo:inline>
 
 					</fo:block>
 					<fo:table table-layout="fixed" width="100%">
-						<fo:table-column column-width="proportional-column-width(50)" />
-						<fo:table-column column-width="proportional-column-width(50)" />
-						<fo:table-body>
-							<fo:table-row>
-								<fo:table-cell>
-									<fo:table table-layout="fixed" width="95%">
-										<fo:table-column column-width="proportional-column-width(50)" />
-										<fo:table-column column-width="proportional-column-width(50)" />
-										<fo:table-header font-weight="bold">
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Dimensions</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>Value (in respective units)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-										</fo:table-header>
-										<fo:table-body>
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Length</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>#writeString($data.length)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Breadth</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>#writeString($data.breadth)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Height</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>#writeString($data.height)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-										</fo:table-body>
-									</fo:table>
-								</fo:table-cell>
-								<fo:table-cell>
-									<fo:table table-layout="fixed" width="95%">
-										<fo:table-column column-width="proportional-column-width(50)" />
-										<fo:table-column column-width="proportional-column-width(50)" />
-										<fo:table-header font-weight="bold">
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Box Details</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>Value (in respective units)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-										</fo:table-header>
-										<fo:table-body>
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Quantity</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>#writeString($data.itemCount)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-											<fo:table-row border="solid 0.5px black">
-												<fo:table-cell>
-													<fo:block>Weight</fo:block>
-												</fo:table-cell>
-												<fo:table-cell>
-													<fo:block>#writeString($data.weight)</fo:block>
-												</fo:table-cell>
-											</fo:table-row>
-										</fo:table-body>
-									</fo:table>
-								</fo:table-cell>
-							</fo:table-row>
-						</fo:table-body>
-					</fo:table>
+                        <fo:table-column column-width="proportional-column-width(50)" />
+                        <fo:table-column column-width="proportional-column-width(25)" />
+                        <fo:table-column column-width="proportional-column-width(25)" />
+                        <fo:table-header font-weight="bold">
+                            <fo:table-row border="solid 0.5px black">
+                                <fo:table-cell padding="2pt">
+                                    <fo:block>Length * Breadth * Height</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Weight</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Quantity</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-header>
+                        <fo:table-body>
+                            <fo:table-row border="solid 0.5px black">
+                                <fo:table-cell>
+                                    <fo:block>
+                                        <fo:inline font-size="13pt" font-weight="bold">
+                                            #writeDimension($data.length) *
+                                            #writeDimension($data.breadth) *
+                                            #writeDimension($data.height)
+                                        </fo:inline>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>
+                                        <fo:inline font-size="13pt" font-weight="bold">
+                                            #writeString($data.weight)
+                                        </fo:inline>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>
+                                        <fo:inline font-size="13pt" font-weight="bold">
+                                            #writeString($data.itemCount)
+                                        </fo:inline>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
 					<fo:block font-weight="bold">
 						<fo:leader leader-length="100%" leader-pattern="rule"
 							rule-thickness="0px" />
@@ -206,7 +167,7 @@
 					<fo:table>
 						<fo:table-body>
 							<fo:table-row border="solid 0.5px black">
-								<fo:table-cell height="1in">
+								<fo:table-cell height="0.2in">
 									<fo:block>#writeString($data.remarks)</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
@@ -229,14 +190,14 @@
   #if($add)
 
 <fo:block>#writeString($add.name)</fo:block>
-<fo:block>#writeString($add.line1)</fo:block>
-<fo:block>#writeString($add.line2)</fo:block>
 <fo:block>
     #if($add.city)
-      #writeString($add.city),
+        <fo:inline font-size="13pt" font-weight="bold">#writeString($add.city),</fo:inline>
     #end
-    #writeString($add.state)
-  </fo:block>
+ </fo:block>
+ <fo:block>
+     <fo:inline font-size="13pt" font-weight="bold">#writeString($add.state)</fo:inline>
+ </fo:block>
 <fo:block>
     #if($add.country)
       #writeString($add.country),
@@ -275,6 +236,14 @@
 		</bc:code128>
 	</bc:barcode>
 </fo:instream-foreign-object>
+#end
+#end
+
+#macro(writeDimension $str)
+#if($str)
+    #writeString($str)
+#else
+    1
 #end
 #end
 

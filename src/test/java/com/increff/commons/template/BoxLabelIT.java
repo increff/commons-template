@@ -49,7 +49,7 @@ public class BoxLabelIT extends AbstractTest {
         form.setFromAddress(getAddress("Customer A"));
         form.setToAddress(getAddress("Customer B"));
         form.setShipmentId("183944");
-        form.setRemarks("012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-");
+        form.setRemarks("012345678-012345678-012345678-012345678-012345678-012345678-");
         return form;
     }
 

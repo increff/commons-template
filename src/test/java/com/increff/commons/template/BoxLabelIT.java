@@ -45,7 +45,7 @@ public class BoxLabelIT extends AbstractTest {
         form.setHeight(null);
         form.setWeight("147");
         form.setItemCount("50");
-        form.setChannelOrderId("CHOID19373");
+        form.setChannelOrderId("testSKUOrderO27-02-2022-15");
         form.setFromAddress(getAddress("Customer A"));
         form.setToAddress(getAddress("Customer B"));
         form.setShipmentId("183944");

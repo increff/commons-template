@@ -58,18 +58,13 @@
 							rule-thickness="0.5px" />
 					</fo:block>
 					<fo:table table-layout="fixed" width="100%">
-						<fo:table-column column-width="proportional-column-width(65)" />
-                    	<fo:table-column column-width="proportional-column-width(35)" />
+						<fo:table-column column-width="proportional-column-width(100)" />
 						<fo:table-body>
 							<fo:table-row>
 								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt"
                                                display-align="after">
 								    <fo:block>Order #:</fo:block>
 								    <fo:block><fo:inline font-size="19pt" font-weight="bold">#writeString($data.channelOrderId)</fo:inline></fo:block>
-								</fo:table-cell>
-								<fo:table-cell text-align="left" padding-before="2pt" padding-after="2pt" display-align="before">
-									<fo:block>Shipment #:</fo:block>
-									<fo:block><fo:inline font-size="19pt" font-weight="bold">#writeString($data.shipmentId)</fo:inline></fo:block>
 								</fo:table-cell>
 							</fo:table-row>
 						</fo:table-body>

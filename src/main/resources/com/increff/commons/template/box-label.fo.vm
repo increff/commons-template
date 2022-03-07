@@ -141,7 +141,7 @@
                                 <fo:table-cell>
                                     <fo:block>
                                         <fo:inline font-size="13pt" font-weight="bold">
-                                            #writeString($data.weight)
+                                            #writeDimension($data.weight)
                                         </fo:inline>
                                     </fo:block>
                                 </fo:table-cell>

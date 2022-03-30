@@ -44,15 +44,15 @@ public class ManifestIT extends AbstractTest{
 	public static ManifestForm form() {
 		ManifestForm form = new ManifestForm();
 		Address warehouseAddress=new Address();
-		warehouseAddress.setName("WhiteField warehouse");
-		warehouseAddress.setLine1("C2-1502,L&T South City");
+		warehouseAddress.setName("Warehouse 1");
+		warehouseAddress.setLine1("10th Main road,South City");
 		warehouseAddress.setLine2("Arakere Bannerghatta Road");
 		warehouseAddress.setCity("Bangalore");
 		warehouseAddress.setState("Karnataka");
 		warehouseAddress.setCountry("India");
 		warehouseAddress.setZip("560102");
 		warehouseAddress.setPhone("+91 90000000099");
-		warehouseAddress.setEmail("whitefieldwarehouse@gmail.com");
+		warehouseAddress.setEmail("warehouse1@gmail.com");
 		form.setTransporter("Delhivery & Sons");
 		form.setManifestId("121212121&&");
 		form.setVendorName("BSPL & Co.");

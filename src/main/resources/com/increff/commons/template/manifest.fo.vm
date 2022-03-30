@@ -105,9 +105,11 @@
 								<fo:table-cell>
 									<fo:block>Channel: #writeString($data.channelId)</fo:block>
 									<fo:block>Channel Manifest #: #writeString($data.channelManifestId)</fo:block>
+									<fo:block>Transporter: #writeString($data.transporter)</fo:block>
 								</fo:table-cell>
 								<fo:table-cell>
-									<fo:block>Transporter: #writeString($data.transporter)</fo:block>
+									<fo:block>Warehouse Address: #writeAddress($data.warehouseAddress)</fo:block>
+									<fo:block>GSTIN: #writeString($data.gstin)</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
 						</fo:table-body>
@@ -201,8 +203,7 @@
 	<fo:block>#writeString($add.name)</fo:block>
 	<fo:block>#writeString($add.line1)</fo:block>
 	<fo:block>#writeString($add.line2)</fo:block>
-	<fo:block>#writeString($add.city), #writeString($add.state)</fo:block>
-	<fo:block>#writeString($add.country), #writeString($add.zip)</fo:block>
+	<fo:block>#writeString($add.city), #writeString($add.state), #writeString($add.country), #writeString($add.zip)</fo:block>
 	<fo:block></fo:block>
 #end	
 #end

@@ -43,12 +43,24 @@ public class ManifestIT extends AbstractTest{
 
 	public static ManifestForm form() {
 		ManifestForm form = new ManifestForm();
+		Address warehouseAddress=new Address();
+		warehouseAddress.setName("Warehouse 1");
+		warehouseAddress.setLine1("10th Main road,South City");
+		warehouseAddress.setLine2("Arakere Bannerghatta Road");
+		warehouseAddress.setCity("Bangalore");
+		warehouseAddress.setState("Karnataka");
+		warehouseAddress.setCountry("India");
+		warehouseAddress.setZip("560102");
+		warehouseAddress.setPhone("+91 90000000099");
+		warehouseAddress.setEmail("warehouse1@gmail.com");
 		form.setTransporter("Delhivery & Sons");
 		form.setManifestId("121212121&&");
 		form.setVendorName("BSPL & Co.");
 		form.setManifestTime(getDate());
 		form.setChannelId("Amazon");
 		form.setChannelManifestId("AZ123456");
+		form.setGstin("06AABC87F1ZS");
+		form.setWarehouseAddress(warehouseAddress);
 		Address vendorAddress = new Address();
 		vendorAddress.setCity("Bangalore");
 		List<ManifestLineItem> manifestLineItem = new ArrayList<>();

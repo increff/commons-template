@@ -52,7 +52,7 @@ public class InvoiceIT extends AbstractTest {
 		form.setBillingAddress(billingAddress);
 		form.setChannelName("Myntra & Co.");
 		form.setChannelOrderNo("Myntra & 123456");
-		form.setFromAddress(getAddress("WhiteField Warehouse"));
+		form.setFromAddress(getAddress("Warehouse 1"));
 		form.setFromTaxId("FROM & 1234567890");
 		form.setInvoiceOrStockTransferNo("Invoice/12345\u002690");
 		form.setInvoiceOrStockTransferTime(new Date());
@@ -181,7 +181,7 @@ public class InvoiceIT extends AbstractTest {
 		Address address = new Address();
 		address.setCity("Bangalore");
 		address.setCountry("India");
-		address.setLine1("C2-1502, L&T South City");
+		address.setLine1("10th Main road,South City");
 		address.setLine2("Arakere, Bannerghatta Road");
 		address.setName(name);
 		address.setPhone("+91-9900093090");

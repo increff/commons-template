@@ -24,6 +24,8 @@ public class ManifestForm extends AbstractForm {
 	private Date manifestTime;
 	private String channelId;
 	private String channelManifestId;
+	private Address warehouseAddress;
+	private String gstin;
 
 	private List<ManifestLineItem> lineItems;
 
@@ -75,4 +77,19 @@ public class ManifestForm extends AbstractForm {
 		this.channelManifestId = channelManifestId;
 	}
 
+	public Address getWarehouseAddress() {
+		return warehouseAddress;
+	}
+
+	public void setWarehouseAddress(Address warehouseAddress) {
+		this.warehouseAddress = warehouseAddress;
+	}
+
+	public String getGstin() {
+		return gstin;
+	}
+
+	public void setGstin(String gstin) {
+		this.gstin = gstin;
+	}
 }

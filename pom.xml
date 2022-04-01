@@ -18,7 +18,7 @@
 
 	<groupId>com.increff.commons</groupId>
 	<artifactId>commons-template</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1-SNAPSHOT</version>
 
 	<name>increff-commons-template</name>
 	<description>
@@ -259,7 +259,7 @@
 		<connection>scm:git:git://github.com/increff/commons-template.git</connection>
 		<developerConnection>scm:git:git@github.com:increff/commons-template.git</developerConnection>
 		<url>https://github.com/increff/commons-template</url>
-		<tag>commons-template-1.1.0</tag>
+		<tag>increff-commons-template-1.0.2</tag>
 	</scm>
 
 	<licenses>

@@ -45,12 +45,9 @@ public class TemplateApi {
 	}
 
 	public static <T> void getPdfFromString(String templateString, T form, OutputStream os) {
-		try {
-			String fopTemplate = VelocityUtil.processString(form, templateString);
-			FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), os);
-		} catch (Exception e) {
-			throw new TemplateException(e);
-		}
+		String fopTemplate = VelocityUtil.processString(form, templateString);
+		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), os);
+		
 	}
 
 }

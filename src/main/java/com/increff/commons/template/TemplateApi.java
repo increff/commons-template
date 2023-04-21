@@ -44,7 +44,7 @@ public class TemplateApi {
 		getPdfFromVm(templateResource, form, os);
 	}
 
-	public static <T> void getPdfFromString(String templateString, T form, OutputStream os) {
+	public static <T> void getPdfFromString(String templateString, T form, OutputStream os) throws ParseException, TransformerException, SAXException {
 		String fopTemplate = VelocityUtil.processString(form, templateString);
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), os);
 		

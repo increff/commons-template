@@ -18,25 +18,30 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.xml.transform.TransformerException;
 
+import com.increff.commons.template.form.*;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.increff.commons.template.form.Address;
-import com.increff.commons.template.form.HandoverForm;
-import com.increff.commons.template.form.HandoverLineItem;
-
 public class HandoverIT extends AbstractTest{
 
 	@Test
 	public void testManifest() throws IOException, TransformerException, URISyntaxException, SAXException {
-		String fopTemplate = VelocityUtil.processVm(form(), Resources.HANDOVER_RESOURCE);
+		HandoverForm handoverForm = form();
+		handoverForm.getLineItems().sort(new Comparator<HandoverLineItem>() {
+			@Override
+			public int compare(HandoverLineItem o1, HandoverLineItem o2) {
+				return o2.getBoxCount() - o1.getBoxCount();
+			}
+		});
+		String fopTemplate = VelocityUtil.processVm(handoverForm, Resources.HANDOVER_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-handover.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);
 	}
@@ -67,6 +72,7 @@ public class HandoverIT extends AbstractTest{
 //			item.setQuantity(i);
 //			item.setToPhone("+91990093090" + i);
 //			item.setToZip("560102" + i);
+			item.setBoxCount((i+1)*2);
 			HandoverLineItem.add(item);
 		}
 		form.setLineItems(HandoverLineItem);

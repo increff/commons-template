@@ -127,15 +127,17 @@
 
 					<fo:table table-layout="fixed" width="100%">
 						<fo:table-column column-number="1" column-width="8%" /> <!--# -->
-						<fo:table-column column-number="2" column-width="20%" /><!--Order
+						<fo:table-column column-number="2" column-width="19%" /><!--Order
 							No. -->
 						<fo:table-column column-number="3" column-width="12%" /><!--Zip/Phone -->
-						<fo:table-column column-number="4" column-width="26%" /><!--
+						<fo:table-column column-number="4" column-width="22%" /><!--
 							AWB -->
-						<fo:table-column column-number="5" column-width="22%" /><!--External
+						<fo:table-column column-number="5" column-width="20%" /><!--External
 							Order No. -->
 						<fo:table-column column-number="6" column-width="12%" /><!--Qty
 							up to 100,000 -->
+						<fo:table-column column-number="7" column-width="7%" /><!--Box Count
+                        	up to 100,000 -->
 						<fo:table-header font-weight="bold">
 							<fo:table-row border="solid 0.5px black">
 								<fo:table-cell>
@@ -156,6 +158,9 @@
 								<fo:table-cell>
 									<fo:block>Qty</fo:block>
 								</fo:table-cell>
+								<fo:table-cell>
+                                	<fo:block>Box Count</fo:block>
+                                </fo:table-cell>
 							</fo:table-row>
 						</fo:table-header>
 
@@ -184,6 +189,9 @@
 								</fo:table-cell>
 								<fo:table-cell>
 									<fo:block>#writeString($item.quantity)</fo:block>
+								</fo:table-cell>
+                                <fo:table-cell>
+                                	<fo:block>#writeString($item.boxCount)</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
 						#end

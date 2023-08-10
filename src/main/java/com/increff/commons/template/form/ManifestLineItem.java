@@ -14,15 +14,15 @@
 
 package com.increff.commons.template.form;
 
-import java.util.List;
 
 public class ManifestLineItem {
 
 	private String orderNo;
 	private String toZip;
 	private String awbNo;
-	private String channelOrderNo;
+  	private String channelOrderNo;
 	private int quantity;
+	private int boxCount = 1;
 
 	public String getOrderNo() {
 		return orderNo;
@@ -62,5 +62,13 @@ public class ManifestLineItem {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public Integer getBoxCount() {
+		return boxCount;
+	}
+
+	public void setBoxCount(Integer boxCount) {
+		this.boxCount = boxCount;
 	}
 }

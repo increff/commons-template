@@ -59,6 +59,7 @@ public class HandoverIT extends AbstractTest{
 		vendorAddress.setCity("Bangalore");
 		form.setVendorAddress(vendorAddress);
 		List<HandoverLineItem> HandoverLineItem = new ArrayList<>();
+		int totalBoxCount = 0;
 		for (int i = 0; i < 5; i++) {
 			HandoverLineItem item = new HandoverLineItem();
 			item.setAwbNo("1234567890awbNo&" + i);
@@ -73,8 +74,10 @@ public class HandoverIT extends AbstractTest{
 //			item.setToPhone("+91990093090" + i);
 //			item.setToZip("560102" + i);
 			item.setBoxCount((i+1)*2);
+			totalBoxCount += item.getBoxCount();
 			HandoverLineItem.add(item);
 		}
+		form.setTotalBoxCount(totalBoxCount);
 		form.setLineItems(HandoverLineItem);
 		return form;
 	}

@@ -32,5 +32,6 @@ public class HandoverForm {
 	private String channelId;
 	private String channelManifestId;
 	private String clientName;
+	private Integer totalBoxCount;
 	private List<HandoverLineItem> lineItems;
 }

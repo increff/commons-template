@@ -29,6 +29,7 @@
 						<fo:leader leader-length="100%" leader-pattern="rule"
 							rule-thickness="0.5px" />
 					</fo:block>
+
 					<fo:table table-layout="fixed" width="100%">
 						<fo:table-body>
 							<fo:table-row>
@@ -43,6 +44,7 @@
 							</fo:table-row>
 						</fo:table-body>
 					</fo:table>
+
 					<fo:block>
 						<fo:leader leader-length="100%" leader-pattern="rule"
 							rule-thickness="0.5px" />
@@ -138,7 +140,7 @@
 							AWB -->
 						<fo:table-column column-number="5" column-width="23%" /><!--External
 							Order No. -->
-						<fo:table-column column-number="6" column-width="5%" /><!--Qty 
+						<fo:table-column column-number="6" column-width="5%" /><!--Qty
 							up to 100,000 -->
 						<fo:table-column column-number="7" column-width="7%" /><!--Box Count
 							up to 100,000 -->
@@ -200,7 +202,28 @@
 						#end
 						</fo:table-body>
 					</fo:table>
+
+				    <fo:table table-layout="fixed" width="100%" padding-top="10mm" padding-bottom="10mm">
+				        <fo:table-column column-number="1" column-width="80%" /> <!--# -->
+                        <fo:table-column column-number="2" column-width="13%" /> <!--# -->
+                        <fo:table-column column-number="3" column-width="7%" /><!--# -->
+                        <fo:table-body font-weight="bold">
+                            <fo:table-row border="solid 0.5px black">
+                                <fo:table-cell>
+                                <fo:block></fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Total Box Count:</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>$data.totalBoxCount</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
+
 				</fo:flow>
+
 			</fo:page-sequence>
 		</fo:root>
 	</xsl:template>
@@ -213,14 +236,14 @@
 	<fo:block>#writeString($add.line2)</fo:block>
 	<fo:block>#writeString($add.city), #writeString($add.state), #writeString($add.country), #writeString($add.zip)</fo:block>
 	<fo:block></fo:block>
-#end	
+#end
 #end
 
 
 #macro( writeString $str)
 #if($str)
 	<![CDATA[$str]]>
-#end				
+#end
 #end
 
 #macro( writeBarcodeWithText $str)
@@ -239,7 +262,7 @@
 #if($str.toString().contains('"'))
 	#set( $str = $str.replace('"', "&quot;") )
 #end
-#if($str) 
+#if($str)
 <fo:instream-foreign-object>
 	<bc:barcode xmlns:bc="http://barcode4j.krysalis.org/ns"
 		message="$str">
@@ -247,12 +270,12 @@
 			<bc:height>10mm</bc:height>
 		</bc:code128>
 	</bc:barcode>
-</fo:instream-foreign-object>				
+</fo:instream-foreign-object>
 #end
 #end
 
 #macro( writeDateTime $dateTime $format)
 #if($dateTime)
 	$date.format('dd MMM yyyy, hh:mm a', $dateTime)
-#end				
+#end
 #end

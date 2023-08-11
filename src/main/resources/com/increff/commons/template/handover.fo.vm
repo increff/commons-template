@@ -197,6 +197,26 @@
 						#end
 						</fo:table-body>
 					</fo:table>
+
+					<fo:table table-layout="fixed" width="100%" padding-top="10mm" padding-bottom="10mm">
+					    <fo:table-column column-number="1" column-width="80%" /> <!--# -->
+                        <fo:table-column column-number="2" column-width="13%" /> <!--# -->
+                        <fo:table-column column-number="3" column-width="7%" /><!--# -->
+                        <fo:table-body font-weight="bold">
+                            <fo:table-row border="solid 0.5px black">
+                                <fo:table-cell>
+                                <fo:block></fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                <fo:block>Total Box Count:</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>$data.totalBoxCount</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
+
 				</fo:flow>
 			</fo:page-sequence>
 		</fo:root>

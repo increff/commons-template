@@ -72,6 +72,7 @@ public class ManifestIT extends AbstractTest{
 		Address vendorAddress = new Address();
 		vendorAddress.setCity("Bangalore");
 		List<ManifestLineItem> manifestLineItem = new ArrayList<>();
+		int totalBoxCount = 0;
 		for (int i = 0; i < 5; i++) {
 			ManifestLineItem item = new ManifestLineItem();
 			item.setAwbNo("1234567890awbNo&" + i);
@@ -84,8 +85,10 @@ public class ManifestIT extends AbstractTest{
 			item.setQuantity(i);
 			item.setToZip("560102" + i);
 			item.setBoxCount((i + 1) * 2);
+			totalBoxCount += item.getBoxCount();
 			manifestLineItem.add(item);
 		}
+		form.setTotalBoxCount(totalBoxCount);
 		form.setLineItems(manifestLineItem);
 		form.setCurrency("INR");
 		return form;

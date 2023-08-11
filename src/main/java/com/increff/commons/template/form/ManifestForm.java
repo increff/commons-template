@@ -29,6 +29,8 @@ public class ManifestForm extends AbstractForm {
 
 	private List<ManifestLineItem> lineItems;
 
+	private int totalBoxCount = 1;
+
 	public String getManifestId() {
 		return manifestId;
 	}
@@ -91,5 +93,13 @@ public class ManifestForm extends AbstractForm {
 
 	public void setGstin(String gstin) {
 		this.gstin = gstin;
+	}
+
+	public int getTotalBoxCount() {
+		return totalBoxCount;
+	}
+
+	public void setTotalBoxCount(int totalBoxCount) {
+		this.totalBoxCount = totalBoxCount;
 	}
 }

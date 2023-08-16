@@ -126,15 +126,15 @@
 					</fo:block>
 
 					<fo:table table-layout="fixed" width="100%">
-						<fo:table-column column-number="1" column-width="8%" /> <!--# -->
-						<fo:table-column column-number="2" column-width="19%" /><!--Order
+						<fo:table-column column-number="1" column-width="5%" /> <!--# -->
+						<fo:table-column column-number="2" column-width="17%" /><!--Order
 							No. -->
-						<fo:table-column column-number="3" column-width="12%" /><!--Zip/Phone -->
-						<fo:table-column column-number="4" column-width="26%" /><!--
+						<fo:table-column column-number="3" column-width="10%" /><!--Zip/Phone -->
+						<fo:table-column column-number="4" column-width="33%" /><!--
 							AWB -->
-						<fo:table-column column-number="5" column-width="20%" /><!--External
+						<fo:table-column column-number="5" column-width="23%" /><!--External
 							Order No. -->
-						<fo:table-column column-number="6" column-width="8%" /><!--Qty
+						<fo:table-column column-number="6" column-width="5%" /><!--Qty
 							up to 100,000 -->
 						<fo:table-column column-number="7" column-width="7%" /><!--Box Count
                         	up to 100,000 -->

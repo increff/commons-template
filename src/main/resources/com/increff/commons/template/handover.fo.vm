@@ -130,11 +130,11 @@
 						<fo:table-column column-number="2" column-width="19%" /><!--Order
 							No. -->
 						<fo:table-column column-number="3" column-width="12%" /><!--Zip/Phone -->
-						<fo:table-column column-number="4" column-width="22%" /><!--
+						<fo:table-column column-number="4" column-width="26%" /><!--
 							AWB -->
 						<fo:table-column column-number="5" column-width="20%" /><!--External
 							Order No. -->
-						<fo:table-column column-number="6" column-width="12%" /><!--Qty
+						<fo:table-column column-number="6" column-width="8%" /><!--Qty
 							up to 100,000 -->
 						<fo:table-column column-number="7" column-width="7%" /><!--Box Count
                         	up to 100,000 -->

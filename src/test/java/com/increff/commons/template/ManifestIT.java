@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.xml.transform.TransformerException;
@@ -36,7 +37,14 @@ public class ManifestIT extends AbstractTest{
 
 	@Test
 	public void testManifest() throws IOException, TransformerException, URISyntaxException, SAXException {
-		String fopTemplate = VelocityUtil.processVm(form(), Resources.MANIFEST_RESOURCE);
+		ManifestForm manifestForm = form();
+		manifestForm.getLineItems().sort(new Comparator<ManifestLineItem>() {
+			@Override
+			public int compare(ManifestLineItem o1, ManifestLineItem o2) {
+				return o2.getBoxCount() - o1.getBoxCount();
+			}
+		});
+		String fopTemplate = VelocityUtil.processVm(manifestForm, Resources.MANIFEST_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-manifest.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);
 	}
@@ -64,6 +72,7 @@ public class ManifestIT extends AbstractTest{
 		Address vendorAddress = new Address();
 		vendorAddress.setCity("Bangalore");
 		List<ManifestLineItem> manifestLineItem = new ArrayList<>();
+		int totalBoxCount = 0;
 		for (int i = 0; i < 5; i++) {
 			ManifestLineItem item = new ManifestLineItem();
 			item.setAwbNo("1234567890awbNo&" + i);
@@ -75,8 +84,11 @@ public class ManifestIT extends AbstractTest{
 			item.setOrderNo("1234567890 order & " + i);
 			item.setQuantity(i);
 			item.setToZip("560102" + i);
+			item.setBoxCount((i + 1) * 2);
+			totalBoxCount += item.getBoxCount();
 			manifestLineItem.add(item);
 		}
+		form.setTotalBoxCount(totalBoxCount);
 		form.setLineItems(manifestLineItem);
 		form.setCurrency("INR");
 		return form;

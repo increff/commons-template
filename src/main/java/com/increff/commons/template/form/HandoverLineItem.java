@@ -25,6 +25,7 @@ public class HandoverLineItem {
 	private String channelOrderNo;
 	private int quantity;
 	private List<String> itemNames;
+	private int boxCount;
 
 	public String getOrderNo() {
 		return orderNo;
@@ -81,5 +82,7 @@ public class HandoverLineItem {
 	public void setItemNames(List<String> itemNames) {
 		this.itemNames = itemNames;
 	}
+	public int getBoxCount() {return boxCount;}
+	public void setBoxCount(Integer boxCount) {this.boxCount = boxCount;}
 
 }

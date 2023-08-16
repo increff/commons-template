@@ -18,25 +18,30 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.xml.transform.TransformerException;
 
+import com.increff.commons.template.form.*;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.increff.commons.template.form.Address;
-import com.increff.commons.template.form.HandoverForm;
-import com.increff.commons.template.form.HandoverLineItem;
-
 public class HandoverIT extends AbstractTest{
 
 	@Test
-	public void testManifest() throws IOException, TransformerException, URISyntaxException, SAXException {
-		String fopTemplate = VelocityUtil.processVm(form(), Resources.HANDOVER_RESOURCE);
+	public void testHandover() throws IOException, TransformerException, URISyntaxException, SAXException {
+		HandoverForm handoverForm = form();
+		handoverForm.getLineItems().sort(new Comparator<HandoverLineItem>() {
+			@Override
+			public int compare(HandoverLineItem o1, HandoverLineItem o2) {
+				return o2.getBoxCount() - o1.getBoxCount();
+			}
+		});
+		String fopTemplate = VelocityUtil.processVm(handoverForm, Resources.HANDOVER_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-handover.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);
 	}
@@ -54,21 +59,25 @@ public class HandoverIT extends AbstractTest{
 		vendorAddress.setCity("Bangalore");
 		form.setVendorAddress(vendorAddress);
 		List<HandoverLineItem> HandoverLineItem = new ArrayList<>();
+		int totalBoxCount = 0;
 		for (int i = 0; i < 5; i++) {
 			HandoverLineItem item = new HandoverLineItem();
-			item.setAwbNo("1234567890awbNo&" + i);
-//			item.setChannelOrderNo("1234567890 Channel & " + i);
+			item.setAwbNo("123456789012121212awbNo&" + i);
+			item.setChannelOrderNo("1234567890 Channel & " + i);
 			List<String> itemNames = new ArrayList<>();
 			for (int j = 0; j < i + 1; j++) {
 				itemNames.add("itemName &!@#$%^&*()_+<> " + j);
 			}
 			item.setItemNames(itemNames);
 			item.setOrderNo("1234567890 order & " + i);
-//			item.setQuantity(i);
-//			item.setToPhone("+91990093090" + i);
-//			item.setToZip("560102" + i);
+			item.setQuantity(i);
+			item.setToPhone("+91990093090" + i);
+			item.setToZip("560102" + i);
+			item.setBoxCount((i+1)*2);
+			totalBoxCount += item.getBoxCount();
 			HandoverLineItem.add(item);
 		}
+		form.setTotalBoxCount(totalBoxCount);
 		form.setLineItems(HandoverLineItem);
 		return form;
 	}

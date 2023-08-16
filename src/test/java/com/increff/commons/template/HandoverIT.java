@@ -62,17 +62,17 @@ public class HandoverIT extends AbstractTest{
 		int totalBoxCount = 0;
 		for (int i = 0; i < 5; i++) {
 			HandoverLineItem item = new HandoverLineItem();
-			item.setAwbNo("1234567890awbNo&" + i);
-//			item.setChannelOrderNo("1234567890 Channel & " + i);
+			item.setAwbNo("123456789012121212awbNo&" + i);
+			item.setChannelOrderNo("1234567890 Channel & " + i);
 			List<String> itemNames = new ArrayList<>();
 			for (int j = 0; j < i + 1; j++) {
 				itemNames.add("itemName &!@#$%^&*()_+<> " + j);
 			}
 			item.setItemNames(itemNames);
 			item.setOrderNo("1234567890 order & " + i);
-//			item.setQuantity(i);
-//			item.setToPhone("+91990093090" + i);
-//			item.setToZip("560102" + i);
+			item.setQuantity(i);
+			item.setToPhone("+91990093090" + i);
+			item.setToZip("560102" + i);
 			item.setBoxCount((i+1)*2);
 			totalBoxCount += item.getBoxCount();
 			HandoverLineItem.add(item);

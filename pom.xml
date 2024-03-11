@@ -256,8 +256,8 @@
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git://github.com/increff/commons-template.git</connection>
-		<developerConnection>scm:git:git@github.com:increff/commons-template.git</developerConnection>
+		<connection>scm:git:https://github.com/increff/commons-template.git</connection>
+		<developerConnection>scm:git:https://github.com/increff/commons-template.git</developerConnection>
 		<url>https://github.com/increff/commons-template</url>
 		<tag>increff-commons-template-1.0.2</tag>
 	</scm>

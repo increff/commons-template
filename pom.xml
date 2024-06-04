@@ -16,9 +16,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<!-- version for all the spring boot starters -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.0</version>
+	</parent>
+
 	<groupId>com.increff.commons</groupId>
 	<artifactId>commons-template</artifactId>
-	<version>1.3.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<name>increff-commons-template</name>
 	<description>
@@ -29,61 +36,67 @@
 	<url>https://github.com/increff/commons-template</url>
 
 	<properties>
+		<java.version>21</java.version>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+
 		<junit.version>4.12</junit.version>
-		<apache.velocity.version>1.7</apache.velocity.version>
-		<commons.io.version>2.5</commons.io.version>
-		<lombok.version>1.16.8</lombok.version>
-		<allegro.finance.version>0.5.1</allegro.finance.version>
+		<apache.velocity-core.version>2.3</apache.velocity-core.version>
+		<apache.velocity-tools.version>3.1</apache.velocity-tools.version>
+		<commons-springboot.version>0.0.1</commons-springboot.version>
+		<avalon-framework.version>4.3.1</avalon-framework.version>
 		<wkhtmltopdf.version>1.0.2-RELEASE</wkhtmltopdf.version>
-		<lombok.version>1.16.8</lombok.version>
-		<fop.version>2.1</fop.version>
+		<lombok.version>1.18.30</lombok.version>
+		<fop.version>2.9</fop.version>
 	</properties>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
-			<version>1.4.01</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/xml-apis/xml-apis -->
+
+		<dependency>
+			<groupId>com.increff.commons</groupId>
+			<artifactId>commons-springboot-test</artifactId>
+			<version>${commons-springboot.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity</artifactId>
-			<version>${apache.velocity.version}</version>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>${apache.velocity-core.version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-tools -->
+		<!-- https://mvnrepository.com/artifact/org.apache.velocity.tools/velocity-tools-generic -->
 		<dependency>
-			<groupId>org.apache.velocity</groupId>
-			<artifactId>velocity-tools</artifactId>
-			<version>2.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.w3c.css/sac -->
-		<dependency>
-			<groupId>org.w3c.css</groupId>
-			<artifactId>sac</artifactId>
-			<version>1.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons.io.version}</version>
+			<groupId>org.apache.velocity.tools</groupId>
+			<artifactId>velocity-tools-generic</artifactId>
+			<version>${apache.velocity-tools.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-beanutils</artifactId>
+					<groupId>commons-beanutils</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>net.sf.barcode4j</groupId>
 			<artifactId>barcode4j-fop-ext</artifactId>
 			<version>2.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/net.sf.barcode4j/barcode4j -->
-		<dependency>
-			<groupId>net.sf.barcode4j</groupId>
-			<artifactId>barcode4j</artifactId>
-			<version>2.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>fop</artifactId>
+					<groupId>org.apache.xmlgraphics</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -98,20 +111,25 @@
 			</exclusions>
 		</dependency>
 
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.avalon.framework/avalon-framework-impl -->
+		<dependency>
+			<groupId>org.apache.avalon.framework</groupId>
+			<artifactId>avalon-framework-impl</artifactId>
+			<version>${avalon-framework.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.avalon.framework/avalon-framework-api -->
+		<dependency>
+			<groupId>org.apache.avalon.framework</groupId>
+			<artifactId>avalon-framework-api</artifactId>
+			<version>${avalon-framework.version}</version>
+		</dependency>
 
 	</dependencies>
 
@@ -222,8 +240,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
 			<plugin>

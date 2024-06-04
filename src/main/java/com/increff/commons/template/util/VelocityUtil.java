@@ -62,7 +62,7 @@ public class VelocityUtil {
 	protected static <T> String process(T data, Template template) {
 		VelocityContext context = new VelocityContext();
 		context.put(CONTEXT, data);
-		Map<String, String> config = new HashMap<>();
+		Map<String, Object> config = new HashMap<>();
 		config.put(DateTool.TIMEZONE_KEY, timeZoneName);
 		DateTool dateTool = new DateTool();
 		dateTool.configure(config);
@@ -75,10 +75,10 @@ public class VelocityUtil {
 
 	protected static Template getTemplate(StringReader reader) throws ParseException {
 		RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
-		SimpleNode node = runtimeServices.parse(reader, "Template name");
 		Template template = new Template();
+		template.setName("Template name");
 		template.setRuntimeServices(runtimeServices);
-		template.setData(node);
+		template.setData(runtimeServices.parse(reader, template));
 		template.initDocument();
 		return template;
 	}

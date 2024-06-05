@@ -14,7 +14,7 @@
 
 package com.increff.commons.template.util;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,8 +22,7 @@ import java.io.InputStream;
 import com.increff.commons.template.PackingListIT;
 import org.apache.commons.io.IOUtils;
 import org.apache.velocity.runtime.parser.ParseException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.increff.commons.template.Resources;
 import com.increff.commons.template.form.PackingListForm;
@@ -33,7 +32,7 @@ public class VelocityUtilTest {
 	@Test
 	public void processVm() throws IOException {
 		String fopTemplate = VelocityUtil.processVm(PackingListIT.form(), Resources.PACKING_LIST_RESOURCE);
-		Assert.assertNotNull(fopTemplate);
+		assertNotNull(fopTemplate);
 	}
 
 	@Test
@@ -43,6 +42,6 @@ public class VelocityUtilTest {
 		assertNotNull(is);
 		String invoiceTemplate = IOUtils.toString(is, "UTF-8");
 		String invoice = VelocityUtil.processString(invoiceForm, invoiceTemplate);
-		Assert.assertNotNull(invoice);
+		assertNotNull(invoice);
 	}
 }

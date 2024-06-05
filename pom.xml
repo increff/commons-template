@@ -40,7 +40,6 @@
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 
-		<junit.version>4.12</junit.version>
 		<apache.velocity-core.version>2.3</apache.velocity-core.version>
 		<apache.velocity-tools.version>3.1</apache.velocity-tools.version>
 		<commons-springboot.version>0.0.1</commons-springboot.version>
@@ -95,6 +94,10 @@
 				<exclusion>
 					<artifactId>fop</artifactId>
 					<groupId>org.apache.xmlgraphics</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -188,7 +191,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
+				<version>3.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -201,7 +204,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
+				<version>3.6.3</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>

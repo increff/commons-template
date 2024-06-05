@@ -22,7 +22,7 @@ import com.increff.commons.template.form.Address;
 import com.increff.commons.template.form.InvoiceForm;
 import com.increff.commons.template.form.InvoiceLineItem;
 import com.increff.commons.template.form.TaxRateLineItem;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.xml.sax.SAXException;
 
 import javax.xml.transform.TransformerException;

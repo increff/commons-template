@@ -24,7 +24,7 @@
 	</parent>
 
 	<groupId>com.increff.commons</groupId>
-	<artifactId>commons-template</artifactId>
+	<artifactId>commons-template-springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>increff-commons-template</name>

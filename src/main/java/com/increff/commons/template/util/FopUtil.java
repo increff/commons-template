@@ -14,7 +14,10 @@
 
 package com.increff.commons.template.util;
 
+import com.increff.commons.template.Resources;
+import com.increff.commons.template.util.FopResourceResolver;
 import org.apache.fop.apps.*;
+import org.apache.fop.apps.io.ResourceResolverFactory;
 import org.xml.sax.SAXException;
 
 import javax.xml.transform.Result;
@@ -24,18 +27,21 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URI;
 
 
 public class FopUtil {
 
-	public static void convertToPDF(InputStream dataIs, InputStream formatIs, OutputStream out)
-			throws TransformerException, SAXException {
+	private static final URI DEFAULT_BASE_URI = new File(".").toURI();
 
-		FopFactoryBuilder fopBuilder = new FopFactoryBuilder(new File(".").toURI(),
-				new FopResourceResolver());
-		FopFactory fopFactory = fopBuilder.build();
+	public static void convertToPDF(InputStream dataIs, InputStream formatIs, OutputStream out)
+			throws TransformerException, SAXException, IOException {
+
+		FopFactory fopFactory = FopFactory.newInstance(DEFAULT_BASE_URI, Resources.getResource(Resources.FOP_XCONF_RESOURCE));
+		fopFactory.getFontManager().setResourceResolver(ResourceResolverFactory.createInternalResourceResolver(DEFAULT_BASE_URI,new FopResourceResolver()));
 		FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 
 		// Construct fop with desired output format

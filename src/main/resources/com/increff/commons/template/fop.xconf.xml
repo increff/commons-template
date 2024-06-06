@@ -39,5 +39,21 @@
 	<!-- default page-height and page-width, in case value is specified as auto -->
 	<default-page-settings height="11in" width="8.26in" />
 
+	<!-- Enable complex scripts-->
+	<complex-scripts disabled="false"/>
+
 	<!-- etc. etc..... -->
+	<renderers>
+		<renderer mime="application/pdf">
+			<version>1.5</version>
+			<fonts>
+				<font kerning="yes" embed-url="classpath:///fonts/ScheherazadeNew-Medium.ttf">
+					<font-triplet name="trado-ar" style="normal" weight="normal" />
+				</font>
+				<font kerning="yes" embed-url="classpath:///fonts/ScheherazadeNew-Bold.ttf">
+					<font-triplet name="trado-ar-bold" style="normal" weight="normal" />
+				</font>
+			</fonts>
+		</renderer>
+	</renderers>
 </fop>

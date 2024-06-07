@@ -30,6 +30,7 @@
 
 	<properties>
 		<junit.version>4.12</junit.version>
+		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 		<apache.velocity.version>1.7</apache.velocity.version>
 		<commons.io.version>2.5</commons.io.version>
 		<lombok.version>1.16.8</lombok.version>
@@ -227,6 +228,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>

@@ -26,6 +26,7 @@ import javax.xml.transform.TransformerException;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -38,7 +39,7 @@ import com.increff.commons.template.form.TaxRateLineItem;
 public class InvoiceIT extends AbstractTest {
 
 	@Test
-	public void testInvoice() throws IOException, TransformerException, URISyntaxException, SAXException {
+	public void testInvoice() throws IOException, TransformerException, URISyntaxException, SAXException, ConfigurationException {
 		String fopTemplate = VelocityUtil.processVm(form(), Resources.INVOICE_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-invoice.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);

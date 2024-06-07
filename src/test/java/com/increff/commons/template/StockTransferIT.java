@@ -22,6 +22,7 @@ import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
 import com.increff.commons.template.form.*;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -35,7 +36,7 @@ import java.util.List;
 public class StockTransferIT extends AbstractTest {
 
 	@Test
-	public void testStockTransferForSameGstin() throws IOException, TransformerException,  SAXException {
+	public void testStockTransferForSameGstin() throws IOException, TransformerException, SAXException, ConfigurationException {
 		String fopTemplate = VelocityUtil.processVm(form(), Resources.STOCK_TRANSFER_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-stock-transfer.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);

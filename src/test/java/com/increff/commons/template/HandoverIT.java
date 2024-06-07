@@ -27,13 +27,14 @@ import com.increff.commons.template.form.*;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
 public class HandoverIT extends AbstractTest{
 
 	@Test
-	public void testHandover() throws IOException, TransformerException, URISyntaxException, SAXException {
+	public void testHandover() throws IOException, TransformerException, URISyntaxException, SAXException, ConfigurationException {
 		HandoverForm handoverForm = form();
 		handoverForm.getLineItems().sort(new Comparator<HandoverLineItem>() {
 			@Override

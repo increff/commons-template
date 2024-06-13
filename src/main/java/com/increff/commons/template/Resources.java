@@ -31,6 +31,7 @@ public class Resources {
 
 
 	public static final String FOP_DATA_RESOURCE = BASE_PACKAGE + "/fop-data.xml";
+	public static final String FOP_XCONF_RESOURCE = BASE_PACKAGE + "/fop.xconf.xml";
 
 	public static InputStream getResource(String resource) {
 		return Resources.class.getResourceAsStream(resource);

@@ -22,6 +22,7 @@ import com.increff.commons.template.form.Address;
 import com.increff.commons.template.form.InvoiceForm;
 import com.increff.commons.template.form.InvoiceLineItem;
 import com.increff.commons.template.form.TaxRateLineItem;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -35,7 +36,7 @@ import java.util.List;
 public class StockTransferWithTaxIT extends AbstractTest {
 
 	@Test
-	public void testStockTransferForDifferentGstin() throws IOException, TransformerException,  SAXException {
+	public void testStockTransferForDifferentGstin() throws IOException, TransformerException, SAXException, ConfigurationException {
 		String fopTemplate = VelocityUtil.processVm(form(), Resources.STOCK_TRANSFER_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-stock-transfer-with-tax.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);

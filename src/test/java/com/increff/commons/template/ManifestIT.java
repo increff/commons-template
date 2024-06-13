@@ -26,6 +26,7 @@ import javax.xml.transform.TransformerException;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -36,7 +37,7 @@ import com.increff.commons.template.form.ManifestLineItem;
 public class ManifestIT extends AbstractTest{
 
 	@Test
-	public void testManifest() throws IOException, TransformerException, URISyntaxException, SAXException {
+	public void testManifest() throws IOException, TransformerException, URISyntaxException, SAXException, ConfigurationException {
 		ManifestForm manifestForm = form();
 		manifestForm.getLineItems().sort(new Comparator<ManifestLineItem>() {
 			@Override

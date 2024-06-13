@@ -23,6 +23,7 @@ import javax.xml.transform.TransformerException;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -32,7 +33,7 @@ import com.increff.commons.template.form.ShippingLabelForm;
 public class ShippingLabelIT extends AbstractTest {
 
 	@Test
-	public void testPackingList() throws IOException, TransformerException, URISyntaxException, SAXException {
+	public void testPackingList() throws IOException, TransformerException, URISyntaxException, SAXException, ConfigurationException {
 		String fopTemplate = VelocityUtil.processVm(form(), Resources.SHIPPING_LABEL_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-shipping-label.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);

@@ -19,6 +19,7 @@ import com.increff.commons.template.form.BoxLabelForm;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -30,7 +31,7 @@ import java.net.URISyntaxException;
 public class BoxLabelIT extends AbstractTest {
 
     @Test
-    public void testBoxLabel() throws IOException, TransformerException, URISyntaxException, SAXException {
+    public void testBoxLabel() throws IOException, TransformerException, URISyntaxException, SAXException, ConfigurationException {
         String fopTemplate = VelocityUtil.processVm(getBoxLabelForm(), Resources.BOX_LABEL_RESOURCE);
         FileOutputStream fos = new FileOutputStream("target/test-box-label.pdf");
         FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);

@@ -25,6 +25,7 @@ import javax.xml.transform.TransformerException;
 import com.increff.commons.template.util.FopUtil;
 import com.increff.commons.template.util.Utils;
 import com.increff.commons.template.util.VelocityUtil;
+import org.apache.fop.configuration.ConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
@@ -35,7 +36,7 @@ import com.increff.commons.template.form.PackingListLineItem;
 public class PackingListIT extends AbstractTest {
 
 	@Test
-	public void testPackingList() throws IOException, TransformerException, URISyntaxException, SAXException {
+	public void testPackingList() throws IOException, TransformerException, URISyntaxException, SAXException, ConfigurationException {
 		String fopTemplate = VelocityUtil.processVm(form(), Resources.PACKING_LIST_RESOURCE);
 		FileOutputStream fos = new FileOutputStream("target/test-packing2-list.pdf");
 		FopUtil.convertToPDF(Resources.getResource(Resources.FOP_DATA_RESOURCE), Utils.toStream(fopTemplate), fos);
